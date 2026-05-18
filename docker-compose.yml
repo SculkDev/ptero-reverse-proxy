@@ -1,0 +1,18 @@
+services:
+  proxy:
+    build: .
+    image: kgamesproxy:latest
+    container_name: kgamesproxy
+    restart: unless-stopped
+    ports:
+      - "${LISTEN_PORT:-8080}:8080"
+    environment:
+      BASE_DOMAIN: ${BASE_DOMAIN:?BASE_DOMAIN required}
+      LABEL_DELIMITER: ${LABEL_DELIMITER-}
+      PANEL_URL: ${PANEL_URL:?PANEL_URL required}
+      PANEL_API_KEY: ${PANEL_API_KEY:?PANEL_API_KEY required}
+      LISTEN_ADDR: ":8080"
+      UPSTREAM_SCHEME: ${UPSTREAM_SCHEME:-https}
+      REFRESH_INTERVAL: ${REFRESH_INTERVAL:-30m}
+      TRUST_FORWARDED: ${TRUST_FORWARDED:-0}
+      PER_PAGE: ${PER_PAGE:-25}

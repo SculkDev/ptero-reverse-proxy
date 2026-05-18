@@ -1,0 +1,28 @@
+# Built binaries
+/kgamesproxy
+/kgamesproxy.exe
+/bin/
+/dist/
+/out/
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+*.local
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Go
+*.test
+*.out
+coverage.*
+vendor/
