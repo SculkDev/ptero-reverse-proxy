@@ -34,6 +34,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.vars.outputs.image }}:${{ steps.vars.outputs.tag }}
+          tags: |
+            ${{ steps.vars.outputs.image }}:${{ steps.vars.outputs.tag }}
+            ${{ steps.vars.outputs.image }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
